@@ -1,2 +1,5 @@
 # sorting-mini-project
-As the name suggests, it's our mini-project for the sorting lab.
+Maria Rodriguez
+
+In this repository, I have created four sorts: Merge sort, Quick sort, Insort Sort, and my own version of Heap
+sort. Each sort has a tester file that inherits it's tests from the SortTester.java file.
