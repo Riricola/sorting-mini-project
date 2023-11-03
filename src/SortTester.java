@@ -45,4 +45,44 @@ public class SortTester {
     assertArrayEquals(original, expected);
   } // orderedStringTest
 
+  @Test
+  public void randOrderedStringTest() {
+    String[] original = { "alpha", "charlie", "bravo", "foxtrot", "delta" };
+    String[] expected = { "alpha", "bravo", "charlie", "delta", "foxtrot" };
+    sorter.sort(original, (x, y) -> x.compareTo(y));
+    assertArrayEquals(original, expected);
+  } // randOrderedStringTest
+
+  @Test
+  public void duplicateStringTest() {
+    String[] original = { "alpha", "alpha", "alpha", "foxtrot", "alpha" };
+    String[] expected = { "alpha", "alpha", "alpha", "alpha", "foxtrot" };
+    sorter.sort(original, (x, y) -> x.compareTo(y));
+    assertArrayEquals(original, expected);
+  } // duplicateStringTest
+
+  @Test
+  public void singleStringTest() {
+    String[] original = { "alpha" };
+    String[] expected = { "alpha" };
+    sorter.sort(original, (x, y) -> x.compareTo(y));
+    assertArrayEquals(original, expected);
+  } // singleStringTest
+
+  @Test
+  public void emptyStringTest() {
+    String[] original = {  };
+    String[] expected = {  };
+    sorter.sort(original, (x, y) -> x.compareTo(y));
+    assertArrayEquals(original, expected);
+  } // emptyStringTest
+
+  @Test
+  public void randOrderIntegerTest() {
+    Integer[] original = { 3, 7, 2, 8, 1 };
+    Integer[] expected = { 1, 2, 3, 7, 8 };
+    sorter.sort(original, (x, y) -> (x == y ? 0 : x < y ? -1 : 1));
+    assertArrayEquals(original, expected);
+  } // randOrderIntegerTest
+
 } // class SortTester
