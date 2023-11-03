@@ -38,13 +38,13 @@ public class MergeSort implements Sorter {
     } else{
       
       //calls mergesort on the array 
-      MergeSort(values, order, 0, values.length);
+      mergeSort(values, order, 0, values.length);
       //merges all the split (sorted) arrays
       merge(values, 0, values.length/2, values.length, order);
     }//else
   } // sort(T[], Comparator<? super T>
 
-  public static <T> void MergeSort(T[] values, Comparator<? super T> order, int lb, int ub){
+  public static <T> void mergeSort(T[] values, Comparator<? super T> order, int lb, int ub){
     if(lb >= ub-1){
       return;
     } else{
@@ -70,8 +70,8 @@ public class MergeSort implements Sorter {
       }//while
 
       //recursively calls mergeSort
-      MergeSort(values, order, lb, mid);
-      MergeSort(values, order, mid+1, ub);
+      mergeSort(values, order, lb, mid);
+      mergeSort(values, order, mid+1, ub);
     }//else  
   }//MergeSort
 
