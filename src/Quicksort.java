@@ -33,21 +33,21 @@ public class Quicksort implements Sorter {
 
   @Override
   public <T> void sort(T[] values, Comparator<? super T> order) {
-    Quicksort(values, order, 0, values.length);
+    quicksort(values, order, 0, values.length);
   } // sort(T[], Comparator<? super T>
 
   /* Quicksort(T[] values, <? super T> order, int lb, int)
    * 
    * recursively calls quicksort on an array that's split in half
    */
-  public <T> void Quicksort(T[] values, Comparator<? super T> order, int lb, int ub) {
+  public <T> void quicksort(T[] values, Comparator<? super T> order, int lb, int ub) {
     // Subarrays of one element or fewer are sorted.
     if (lb >= ub-1) {
       return;
     } else {
       int mid = partition(values, order, lb, ub); //through every call of Quicksort, mid gets redefined
-      Quicksort(values, order, lb, mid); //quicksort is called on the left half
-      Quicksort(values, order, mid+1, ub); //quicksort is called on the right half
+      quicksort(values, order, lb, mid); //quicksort is called on the left half
+      quicksort(values, order, mid+1, ub); //quicksort is called on the right half
     } // if/else
   } // Quicksort(T[], Comparator<? super T>, int lb, int ub)
 
