@@ -1,16 +1,13 @@
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.junit.jupiter.api.Assertions.fail;
 import java.math.BigInteger;
+import java.util.Arrays;
 import org.junit.jupiter.api.Test;
 
 /**
  * Tests of Sorter objects.
  *
- * @author Maria Rodriguez
+ * @author Your Name
  */
 public class SortTester {
 
@@ -84,5 +81,27 @@ public class SortTester {
     sorter.sort(original, (x, y) -> (x == y ? 0 : x < y ? -1 : 1));
     assertArrayEquals(original, expected);
   } // randOrderIntegerTest
+
+  /*
+   * random large array for the E
+   */
+  @Test
+  public void testSortArray() {
+    // Generate a randomly large array
+    int size = 1000;
+    int[] randomArray = new int[size];
+    for (int i = 0; i < size; i++) {
+      randomArray[i] = (int) (Math.random() * 1000); // Adjust the range as needed
+    }
+    sorter.sort(original, (x, y) -> (x == y ? 0 : x < y ? -1 : 1));
+  
+    int[] originalArray = Arrays.copyOf(randomArray, size);
+    int[] sortedArray = sorter.sort(randomArray);
+
+    assertArrayEquals(originalArray, sortedArray);
+
+  } // testSortArray
+
+
 
 } // class SortTester
